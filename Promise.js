@@ -1,9 +1,5 @@
 typeof Promise !== 'undefined' || void function (local){
 
-	var isBrowser = typeof window !== 'undefined' && typeof local.document !== 'undefined';
-	var isWorker = typeof self !== 'undefined' && typeof importScripts !== 'undefined';
-	var isNode = typeof global !== 'undefined';
-
 	//Promise 3 种状态
 	var PENDING = 0,
 		FULFILLED = 1,
@@ -14,9 +10,9 @@ typeof Promise !== 'undefined' || void function (local){
 
 	//nextTick实现
 	var nextTick = (function(){
-		if (isNode) {
+		if (typeof process !== 'undefined' && typeof process.nextTick !== 'undefined') {
 			return process.nextTick;
-		} else if (isBrowser && window.MutationObserver){
+		} else if (typeof window !== 'undefined' && window.MutationObserver){
 			var node = document.createTextNode(''), queue = [], i = 0;
 			new MutationObserver(function (){
 				if (queue.length === 0) return;
@@ -279,11 +275,13 @@ typeof Promise !== 'undefined' || void function (local){
 		return obj instanceof Promise && obj.constructor === Promise;
 	}
 
-	if (isNode) {
+	if (typeof module !== 'undefined' && module.exports) {
 		module.exports = Promise;
-	} else if (isBrowser) {
-		window.Promise = Promise;
-	} else if (isWorker) {
-		self.Promise = Promise;
+	} else if (typeof define === 'function' && define.amd) {
+		define(function (){
+			return Promise;
+		});
+	} else {
+		this.Promise = Promise;
 	}
 }(this)
