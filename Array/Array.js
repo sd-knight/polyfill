@@ -3,7 +3,6 @@ if (!Array.isArray) {
     return Object.prototype.toString.call(arg) === '[object Array]';
   };
 }
-
 if (!Array.prototype.every){
   Array.prototype.every = function(fun /*, thisArg */){
     'use strict';
@@ -20,7 +19,6 @@ if (!Array.prototype.every){
     return true;
   };
 }
-
 if (![].fill) {
   Array.prototype.fill = function(value) {
     var O = Object(this);
@@ -43,7 +41,6 @@ if (![].fill) {
     return O;
   };
 }
-
 if (!Array.prototype.filter){
   Array.prototype.filter = function(fun /*, thisArg */) {
     "use strict";
@@ -62,7 +59,6 @@ if (!Array.prototype.filter){
     return res;
   };
 }
-
 if (!Array.prototype.find) {
   Array.prototype.find = function(predicate) {
       if (this == null) {
@@ -87,7 +83,6 @@ if (!Array.prototype.find) {
       return undefined;
     }
 }
-
 if ( !Array.prototype.forEach ) {
   Array.prototype.forEach = function forEach( callback, thisArg ) {
     var T, k;
@@ -113,7 +108,6 @@ if ( !Array.prototype.forEach ) {
     }
   };
 }
-
 if (!Array.prototype.indexOf) {
   Array.prototype.indexOf = function (searchElement, fromIndex) {
     if ( this === undefined || this === null ) {
@@ -138,7 +132,6 @@ if (!Array.prototype.indexOf) {
     return -1;
   };
 }
-
 if (!Array.prototype.lastIndexOf) {
   Array.prototype.lastIndexOf = function(searchElement, fromIndex) {
     'use strict';
@@ -171,7 +164,6 @@ if (!Array.prototype.lastIndexOf) {
     return -1;
   };
 }
-
 if ('function' !== typeof Array.prototype.reduce) {
   Array.prototype.reduce = function(callback, opt_initialValue){
     'use strict';
@@ -206,7 +198,6 @@ if ('function' !== typeof Array.prototype.reduce) {
     return value;
   };
 }
-
 if (!Array.prototype.map) {
   Array.prototype.map = function(callback, thisArg) {
     var T, A, k;
@@ -235,7 +226,6 @@ if (!Array.prototype.map) {
     return A;
   };      
 }
-
 if ( 'function' !== typeof Array.prototype.reduceRight ) {
   Array.prototype.reduceRight = function( callback /*, initialValue*/ ) {
     'use strict';
@@ -263,7 +253,6 @@ if ( 'function' !== typeof Array.prototype.reduceRight ) {
     return value;
   };
 }
-
 if (!Array.prototype.some){
   Array.prototype.some = function(fun /*, thisArg */){
     'use strict';
