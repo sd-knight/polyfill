@@ -10,7 +10,7 @@ typeof Promise !== 'undefined' || void function (local){
 
 	//nextTick实现
 	var nextTick = (function(){
-		if (typeof process !== 'undefined' && typeof process.nextTick !== 'undefined') {
+		if (typeof process !== 'undefined' && typeof process.nextTick === 'function') {
 			return process.nextTick;
 		} else if (typeof window !== 'undefined' && window.MutationObserver){
 			var node = document.createTextNode(''), queue = [], i = 0;
